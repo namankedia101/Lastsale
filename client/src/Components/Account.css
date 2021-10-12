@@ -1,0 +1,24 @@
+.accountPage{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.addressesContainer{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.addresses{
+    display: flex;
+}
+
+.address{
+    padding: .3rem;
+    display: flex;
+    width: 300px;
+    background-color: white;
+    border: 1px dashed #808080;
+    margin-right: 30px;
+}
