@@ -15,7 +15,7 @@ import Account from './Components/Account';
 const App=()=>{
 
   const user = JSON.parse(localStorage.getItem("profile"));
-  
+
   // const result = useSelector((state)=>state.auth.authData);
   // const user = result
   // console.log(user);
@@ -46,10 +46,6 @@ const App=()=>{
             render={() => user ? <AddressForm /> : <Redirect to="/" />}
           />
           <Route exact path="/" component={Home} />
-          <Route exact 
-            path="/order-success-page/:id" 
-            render={()=>user ? <OrderSuccess />: <Redirect to="/" />}
-          />
     </Switch>
     </div>
     )
@@ -58,8 +54,12 @@ const App=()=>{
   return (
     <BrowserRouter>
     <Switch>
-    <Route  path="/login" exact component={()=>user ? <Redirect to="/" />:<Login />} />
-    <Route  path= "/newProduct" exact component={()=>user.result.contactInfo.email === "kediaarts@gmail.com" ? <NewProduct /> : <Redirect to="/" />}/>
+    <Route exact path="/login" render={()=>user ? <Redirect to="/" />:<Login />} />
+    <Route exact path= "/newProduct" render={()=>user.result.contactInfo.email === "kediaarts@gmail.com" ? <NewProduct /> : <Redirect to="/" />}/>
+    <Route exact 
+            path="/order-success-page/:payId/:orderId" 
+            render={()=> user ? <OrderSuccess /> : <Redirect to="/" />}
+    />
     <Route component={defaultRoutes} />
     </Switch>
     </BrowserRouter>

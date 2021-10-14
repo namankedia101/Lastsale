@@ -67,7 +67,7 @@ const Payment=()=>{
                 if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
                     redirect_url = `/order-failed-page/${response.razorpay_payment_id}`;
                   } else {
-                    redirect_url = `/order-success-page/${response.razorpay_payment_id}`;
+                    redirect_url = `/order-success-page/${response.razorpay_payment_id}/${response.razorpay_order_id}`;
                     //history.replace("/orders");
                   }
                   window.location.href = redirect_url;
