@@ -70,7 +70,7 @@ const Payment=()=>{
                     redirect_url = `/order-success-page/${response.razorpay_payment_id}/${response.razorpay_order_id}`;
                     //history.replace("/orders");
                   }
-                  window.location.href = redirect_url;
+                  history.push(redirect_url);
             },
             "notes":{
                 "userId":user?.result._id,
