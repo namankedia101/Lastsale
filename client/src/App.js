@@ -1,62 +1,68 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import Checkout  from "./Components/Checkout";
 import Payment from "./Components/Payment";
 import NewProduct from "./Components/NewProduct";
 import OrderSuccess from "./Components/OrderSuccess";
-import {AddressForm}  from './Components/AddressForm';
-import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import AddressForm from './Components/AddressForm';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import { Redirect } from 'react-router';
 import Login from './Components/Login';
 import Orders from "./Components/Orders";
-import { Account } from './Components/Account';
-function App() {
-  const [user,setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+import Account from './Components/Account';
+import { useSelector } from 'react-redux';
 
-  return (
-    <Router>
-    <div className="app">
+const App=()=>{
+
+  const user = JSON.parse(localStorage.getItem("profile"));
+  // const result = useSelector((state)=>state.auth.authData);
+  // const user = result
+  // console.log(user);
+
+  const defaultRoutes= ()=>{
+    return(
+      <div>
+    <Header/>
     <Switch>
-    <Route exact path="/account-settings">
-      {user?.result ?
-      <><Header />
-      <Account /></> : <Redirect to="/" />}
-    </Route>
-    <Route exact path= "/newProduct">
-      {user?.result.contactInfo.email === "kediaarts@gmail.com" ? <NewProduct /> : <Redirect to="/" />}
-    </Route>
-    <Route exact path="/orders">
-    {user?.result ? 
-    <><Header />
-      <Orders /></> : <Redirect to="/" />}
-    </Route>
-    <Route exact path="/login">
-    {user?.result ? <Redirect to="/" />:<><Login /></> }
-    </Route>
-    <Route exact path="/checkout"> 
-    {user?.result ? 
-    <><Header />
-      <Checkout /></> : <Redirect to="/" />}
-    </Route>
-    <Route exact path="/payment">
-    {user?.result ? <><Header />
-      <Payment /></> : <Redirect to="/" />}
-    </Route>
-    {/* <Route exact path="/order-success-page/:id">
-    {user?.result ? <><OrderSuccess /></> : <Redirect to="/" />}
-    </Route> */}
-    <Route exact path="/account-settings/add-new-address">
-    {user?.result ? <>
-    <Header />
-      <AddressForm /></> : <Redirect to="/" />}
-    </Route>
-    <Route exact path="/">
-      <Header />
-      <Home />
-    </Route>
+          <Route exact
+            path="/account-settings"
+            render={() => user ? <Account />: <Redirect to="/" />}
+          />
+          <Route exact
+            path="/orders"
+            render={() => user ? <Orders /> : <Redirect to="/" />}
+          />
+          <Route exact
+            path="/checkout"
+            render={() => user ? <Checkout />: <Redirect to="/" />}
+          />
+          <Route exact
+            path="/payment"
+            render={() => user ? <Payment /> : <Redirect to="/" />}
+          />
+          <Route exact
+            path="/account-settings/add-new-address"
+            render={() => user?.result ? <AddressForm /> : <Redirect to="/" />}
+          />
+          <Route exact path="/" component={Home} />
+          <Route exact 
+            path="/order-success-page/:id" 
+            render={()=>user?.result ? <OrderSuccess />: <Redirect to="/" />}
+          />
     </Switch>
     </div>
-    </Router>
+    )
+  }
+
+  return (
+    <BrowserRouter>
+    <Switch>
+    <Route  path="/login" exact component={()=>user ? <Redirect to="/" />:<Login />} />
+    <Route  path= "/newProduct" exact component={()=>user?.result.contactInfo.email === "kediaarts@gmail.com" ? <NewProduct /> : <Redirect to="/" />}/>
+    <Route component={defaultRoutes} />
+    </Switch>
+    </BrowserRouter>
   );
 }
 

@@ -5,7 +5,7 @@ import {getUserOrders,getCartItems} from "../actions/auth";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../actions/products';
 
-function Orders() {   
+const Orders=()=>{   
     
     const dispatch = useDispatch();
     const {orders} = useSelector((state)=>state.products);

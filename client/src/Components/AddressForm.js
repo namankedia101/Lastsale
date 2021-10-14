@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom";
 import { getCartItems, addNewAddress } from '../actions/auth';
 import "./AddressForm.css";
 
-export const AddressForm = () => {
+const AddressForm = () => {
 
     const [user,setUser] = useState(JSON.parse(localStorage.getItem("profile")));    
     const dispatch = useDispatch();
@@ -59,3 +59,5 @@ export const AddressForm = () => {
         </div>
     )
 }
+
+export default AddressForm;

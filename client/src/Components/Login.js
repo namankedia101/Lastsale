@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import "./Login.css";
 import {signup,signin} from "../actions/auth";
 
-function Login() {
+const Login=()=>{
     
     const [form,setForm] =useState({
         email:"",

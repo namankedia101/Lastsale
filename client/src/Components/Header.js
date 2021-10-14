@@ -2,26 +2,26 @@ import React, {useEffect, useState} from 'react';
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import { Link, useHistory } from 'react-router-dom';
-import { fetchProducts } from '../actions/products';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import decode from "jwt-decode";
 import { useDispatch, useSelector } from 'react-redux';
 
-function Header() {
+const Header=()=> {
    const [user, setUser]=useState(JSON.parse(localStorage.getItem("profile")));
    const {cart} = useSelector((state)=>state.products);
-   const {products} = useSelector((state)=>state.products);
 
    const dispatch = useDispatch();
+   const location = useLocation();
    const history = useHistory();
 
-   const logout=()=>{
+   const logout=async()=>{
     let result= window.confirm("Do you really want to logout?");
     if(result===true){
        setUser(null);
-       history.push("/login");
-       dispatch({type:"LOGOUT"});
-       dispatch({type:"REMOVE_ALL_CART"})
+       await dispatch({type:"LOGOUT"});
+       await dispatch({type:"REMOVE_ALL_CART"})
+       //history.push("/login")
+       window.location.href="/login";
     }
    }
 
@@ -34,7 +34,7 @@ function Header() {
             if (decodedToken.exp * 1000 < new Date().getTime()) logout();
         }
 
-    })
+    },[location])
 
     return (
         <div className="header">

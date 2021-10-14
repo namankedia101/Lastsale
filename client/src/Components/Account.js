@@ -4,7 +4,7 @@ import { getUserAddresses, getCartItems } from '../actions/auth';
 import Address from './Address';
 import "./Account.css"
 
-export const Account = () => {
+const Account = () => {
 
     const [user,setUser] = useState(JSON.parse(localStorage.getItem("profile")));    
     const dispatch = useDispatch();
@@ -30,3 +30,5 @@ export const Account = () => {
         </div>
     )
 }
+
+export default Account;

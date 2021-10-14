@@ -19,7 +19,7 @@ const loadScript = ()=>{
 
 const _DEV_ = document.domain === "localhost";
 
-function Payment() {
+const Payment=()=>{
     const {cart,userAddresses} = useSelector((state)=>state.products);
     let redirect_url;
 

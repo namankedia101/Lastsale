@@ -5,7 +5,7 @@ import { fetchProducts } from '../actions/products';
 import { getCartItems } from '../actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
 
-function Home() {
+const Home=()=>{
 
   const dispatch = useDispatch();
   const [user,setUser] = useState(JSON.parse(localStorage.getItem("profile")));    
@@ -15,7 +15,7 @@ function Home() {
    dispatch(fetchProducts());
    if(user){
    dispatch(getCartItems(user?.result._id));}
-  },[dispatch]);
+  },[]);
 
     return (
       <div className="home">

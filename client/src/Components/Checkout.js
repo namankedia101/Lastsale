@@ -5,7 +5,7 @@ import CheckoutProduct from './CheckoutProduct';
 import Subtotal from "./Subtotal";
 import {useDispatch, useSelector} from "react-redux";
 
-function Checkout() {
+const Checkout=()=>{
     
     const dispatch = useDispatch();
     const [user,setUser] = useState(JSON.parse(localStorage.getItem("profile")));    
