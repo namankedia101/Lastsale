@@ -111,7 +111,7 @@ const Payment=()=>{
                             /> 
                             </div>
                         )}<h3>or</h3>
-                        <span><a href="/account-settings/add-new-address">ADD NEW ADDRESS</a></span>
+                        <Link to="/account-settings/add-new-address">ADD NEW ADDRESS</Link>
                     </div>
             </div>
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAddresses, getCartItems } from '../actions/auth';
 import Address from './Address';
 import "./Account.css"
+import { Link } from 'react-router-dom';
 
 const Account = () => {
 
@@ -24,7 +25,7 @@ const Account = () => {
                 <div className="address">
                 <Address key={index} name={userAddress.name} tel={userAddress.tel} state={userAddress.state} pincode={userAddress.pincode} address={userAddress.address} />
                 </div>))}
-            <div><span><a href="/account-settings/add-new-address">ADD NEW ADDRESS</a></span></div>
+        <Link to="/account-settings/add-new-address">ADD NEW ADDRESS</Link>
         </div>
         </div>
         </div>
