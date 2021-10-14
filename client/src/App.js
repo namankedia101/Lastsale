@@ -11,11 +11,11 @@ import { Redirect } from 'react-router';
 import Login from './Components/Login';
 import Orders from "./Components/Orders";
 import Account from './Components/Account';
-import { useSelector } from 'react-redux';
 
 const App=()=>{
 
   const user = JSON.parse(localStorage.getItem("profile"));
+  
   // const result = useSelector((state)=>state.auth.authData);
   // const user = result
   // console.log(user);
@@ -43,12 +43,12 @@ const App=()=>{
           />
           <Route exact
             path="/account-settings/add-new-address"
-            render={() => user?.result ? <AddressForm /> : <Redirect to="/" />}
+            render={() => user ? <AddressForm /> : <Redirect to="/" />}
           />
           <Route exact path="/" component={Home} />
           <Route exact 
             path="/order-success-page/:id" 
-            render={()=>user?.result ? <OrderSuccess />: <Redirect to="/" />}
+            render={()=>user ? <OrderSuccess />: <Redirect to="/" />}
           />
     </Switch>
     </div>
@@ -59,7 +59,7 @@ const App=()=>{
     <BrowserRouter>
     <Switch>
     <Route  path="/login" exact component={()=>user ? <Redirect to="/" />:<Login />} />
-    <Route  path= "/newProduct" exact component={()=>user?.result.contactInfo.email === "kediaarts@gmail.com" ? <NewProduct /> : <Redirect to="/" />}/>
+    <Route  path= "/newProduct" exact component={()=>user.result.contactInfo.email === "kediaarts@gmail.com" ? <NewProduct /> : <Redirect to="/" />}/>
     <Route component={defaultRoutes} />
     </Switch>
     </BrowserRouter>
