@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API = axios.create({baseURL:"https://aqueous-forest-14310.herokuapp.com"});
-//https://aqueous-forest-14310.herokuapp.com
+const API = axios.create({baseURL:"https://amazon-clone-m337.onrender.com"});
+//https://amazon-clone-m337.onrender.com
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
       req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
