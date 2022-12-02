@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
-    "server": "nodemon index.js --ignore tests",
+    "start": "npx nodemon index.js",
+    "server": "npx nodemon index.js --ignore tests",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "npm install --prefix client && npm run build --prefix client",
