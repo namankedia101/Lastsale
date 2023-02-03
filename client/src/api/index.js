@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({baseURL:"https://amazon-clone-m337.onrender.com"});
+const API = axios.create({baseURL:"https://lastsale.onrender.com"});
 //https://amazon-clone-m337.onrender.com
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
