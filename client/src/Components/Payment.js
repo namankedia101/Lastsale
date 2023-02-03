@@ -55,7 +55,7 @@ const Payment=()=>{
 
     const displayRazorpay =async()=>{
         await loadScript();
-        const {data} = await axios.post(`https://amazon-clone-m337.onrender.com/user/api/razorpay-order/${user?.result._id}/${getBasketTotal}`);
+        const {data} = await axios.post(`https://lastsale.onrender.com/user/api/razorpay-order/${user?.result._id}/${getBasketTotal}`);
         const options = {
             "key": _DEV_ ? "rzp_test_CIq090UjfKIztC" : "rzp_test_CIq090UjfKIztC", 
             "amount": data.amount.toString(), 
