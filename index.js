@@ -10,6 +10,8 @@ import productRoutes from "./routes/products.js";
 
 const app = express();
 
+app.use(cors());
+
 dotenv.config();
 
 app.use(express.json({ extended: true, limit: "100mb" }));
@@ -17,8 +19,6 @@ app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-app.use(cors());
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Credentials", true);
