@@ -3,12 +3,13 @@ import cors from "cors";
 import mongoose from "mongoose";
 import path from "path";
 import dotenv from "dotenv";
-import { fileURLToPath } from 'url';
-import bodyParser from "body-parser";
 import userRoutes from "./routes/user.js"
 import productRoutes from "./routes/products.js";
+import { fileURLToPath } from 'url';
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(cors());
 
@@ -16,9 +17,6 @@ dotenv.config();
 
 app.use(express.json({ extended: true, limit: "100mb" }));
 app.use(express.urlencoded({ extended: true, limit: "100mb" }));
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Credentials", true);
@@ -42,11 +40,11 @@ app.get("/api",(req,res)=>{
   res.send("Welcome to Amazon Clone API");
 })
 
-const root = require('path').join(__dirname, 'client', 'build')
-app.use(express.static(root));
-app.get("*", (req, res) => {
-    res.sendFile('index.html', { root });
-})
+app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 mongoose
