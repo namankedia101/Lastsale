@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import {useHistory} from "react-router-dom";
-import { getCartItems, addNewAddress } from '../actions/auth';
+import { getCartItems, addNewAddress } from '../../actions/auth';
 import "./AddressForm.css";
 
 const AddressForm = () => {

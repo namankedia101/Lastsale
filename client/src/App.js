@@ -1,16 +1,16 @@
 import React from 'react';
-import Header from './Components/Header';
-import Home from './Components/Home';
-import Checkout  from "./Components/Checkout";
-import Payment from "./Components/Payment";
-import NewProduct from "./Components/NewProduct";
-import OrderSuccess from "./Components/OrderSuccess";
-import AddressForm from './Components/AddressForm';
+import Header from './Components/Header/Header';
+import Home from './Components/Home/Home';
+import Checkout  from "./Components/Checkout/Checkout";
+import Payment from "./Components/Payment/Payment";
+import NewProduct from "./Components/NewProduct/NewProduct";
+import OrderSuccess from "./Components/OrderSuccess/OrderSuccess";
+import AddressForm from './Components/AddressForm/AddressForm';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import { Redirect } from 'react-router';
-import Login from './Components/Login';
-import Orders from "./Components/Orders";
-import Account from './Components/Account';
+import Login from './Components/Login/Login';
+import Orders from "./Components/Orders/Orders";
+import Account from './Components/Account/Account';
 
 const App=()=>{
 

@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import "./Payment.css";
-import CheckoutProduct from './CheckoutProduct';
-import Address from './Address';
+import CheckoutProduct from '../CheckoutProduct/CheckoutProduct';
+import Address from '../Address/Address';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import CurrencyFormat from 'react-currency-format';
-import { getCartItems, getUserAddresses } from '../actions/auth';
+import { getCartItems, getUserAddresses } from '../../actions/auth';
 import {useDispatch, useSelector} from "react-redux";
 import axios from 'axios';
 import $ from "jquery";

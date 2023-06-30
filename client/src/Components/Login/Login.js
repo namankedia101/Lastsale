@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import {useDispatch} from "react-redux";
 import "./Login.css";
-import {signup,signin} from "../actions/auth";
+import {signup,signin} from "../../actions/auth";
 
 const Login=()=>{
     

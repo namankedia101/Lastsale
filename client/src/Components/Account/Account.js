@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAddresses, getCartItems } from '../actions/auth';
-import Address from './Address';
+import { getUserAddresses, getCartItems } from '../../actions/auth';
+import Address from '../Address/Address';
 import "./Account.css"
 import { Link } from 'react-router-dom';
 

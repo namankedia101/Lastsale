@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import {addToCart} from "../actions/auth";
+import {addToCart} from "../../actions/auth";
 import { useSelector } from 'react-redux';
 import "./Product.css";
 

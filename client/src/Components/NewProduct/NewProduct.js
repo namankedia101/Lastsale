@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import "./NewProduct.css";
 import FileBase from "react-file-base64";
 import { Link, useHistory } from 'react-router-dom';
-import {createNewProduct} from "../actions/products";
+import {createNewProduct} from "../../actions/products";
 
 const NewProduct = () => {
 

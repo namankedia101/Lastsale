@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from 'react';
 import "./Home.css";
-import Product from './Product';
-import { fetchProducts } from '../actions/products';
-import { getCartItems } from '../actions/auth';
+import Product from '../Product/Product';
+import { fetchProducts } from '../../actions/products';
+import { getCartItems } from '../../actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Home=()=>{

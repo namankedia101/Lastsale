@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import "./Orders.css";
-import Order from "./Order";
-import {getUserOrders,getCartItems} from "../actions/auth";
+import Order from "../Order/Order";
+import {getUserOrders,getCartItems} from "../../actions/auth";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../actions/products';
+import { fetchProducts } from '../../actions/products';
 
 const Orders=()=>{   
     

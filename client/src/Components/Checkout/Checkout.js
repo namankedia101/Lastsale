@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {getCartItems} from "../actions/auth";
+import {getCartItems} from "../../actions/auth";
 import "./Checkout.css";
-import CheckoutProduct from './CheckoutProduct';
-import Subtotal from "./Subtotal";
+import CheckoutProduct from '../CheckoutProduct/CheckoutProduct';
+import Subtotal from "../Subtotal/Subtotal";
 import {useDispatch, useSelector} from "react-redux";
 
 const Checkout=()=>{

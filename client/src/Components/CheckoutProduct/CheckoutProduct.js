@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "./CheckoutProduct.css";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from '../actions/auth';
+import { removeFromCart } from '../../actions/auth';
 
 function CheckoutProduct({id,image,title,price,rating,hideButton}) {
     const [user, setUser]=useState(JSON.parse(localStorage.getItem("profile")));
